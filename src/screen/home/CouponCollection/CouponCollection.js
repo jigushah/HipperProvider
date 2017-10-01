@@ -11,7 +11,7 @@ const Images = {
   mapImg: require('../../../../assets/images/map_BW.png'),
 }
 
-export default class login extends React.Component {
+export default class CouponCollection extends React.Component {
   closePopUp = () => {
     alert("close cliked!")
   }
