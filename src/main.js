@@ -6,6 +6,7 @@ import navigationContext from './navigationHelper/customNavigationContext';
 import Router from './navigationHelper/router'
 import { NavigationProvider,StackNavigation } from '@expo/ex-navigation';
 
+
 export default class main extends React.Component {
 
     render() {
@@ -14,7 +15,7 @@ export default class main extends React.Component {
                 <StatusBar backgroundColor="blue" hidden={true}/>
                 <Provider store={store}>
                     <NavigationProvider router={Router} context={navigationContext}>
-                        <StackNavigation initialRoute={Router.getRoute('CouponCollection')}
+                        <StackNavigation initialRoute={Router.getRoute('OpeningHours')}
                                          defaultRouteConfig={{
                                              navigationBar: {
                                                  visible: false,
