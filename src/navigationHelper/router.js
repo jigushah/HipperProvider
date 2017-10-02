@@ -9,6 +9,7 @@ import SplashScreen from '../screen/home/SplashScreen/SplashScreen'
 import EditProfile from '../screen/home/EditProfile/EditProfile'
 import CouponCollection from '../screen/home/CouponCollection/CouponCollection'
 import OpeningHours from '../screen/home/OpeningHours/OpeningHours'
+import BusinessInfo from '../screen/home/BusinessInfo/BusinessInfo'
 
 export default createRouter(() => ({
     login: () => login,
@@ -17,7 +18,8 @@ export default createRouter(() => ({
     SplashScreen: () => SplashScreen,
     EditProfile: () => EditProfile,
     CouponCollection: () => CouponCollection,
-    OpeningHours: () => OpeningHours
+    OpeningHours: () => OpeningHours,
+    BusinessInfo: () => BusinessInfo
 
 
 }),{ignoreSerializableWarnings: true});
