@@ -30,13 +30,13 @@ export default class OpeningHours extends React.Component {
               <View style={{marginTop:30,marginLeft:15,marginRight:15,paddingBottom:10,borderRadius:5}}>
                 <PopUpHeader headerTitle="Opening Hours" closePopUp={this.closePopUp}/>
                 <View style={{backgroundColor:'rgb(255,234,236)'}}>
-                  <ListItem day={"Sunday"}/>
-                  <ListItem day={"Monday"}/>
-                  <ListItem day={"Tuesday"}/>
-                  <ListItem day={"Wednesday"}/>
-                  <ListItem day={"Thursday"}/>
-                  <ListItem day={"Friday"}/>
-                  <ListItem day={"Saturday"}/>
+                  <ListItem labelText={"Sunday"}/>
+                  <ListItem labelText={"Monday"}/>
+                  <ListItem labelText={"Tuesday"}/>
+                  <ListItem labelText={"Wednesday"}/>
+                  <ListItem labelText={"Thursday"}/>
+                  <ListItem labelText={"Friday"}/>
+                  <ListItem labelText={"Saturday"}/>
                   <View style={{
                           padding:10,flexDirection:'row',
                           backgroundColor:'rgb(76,167,165)',

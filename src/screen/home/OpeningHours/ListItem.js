@@ -20,7 +20,7 @@ export default class ListItem extends React.Component {
         return (
           <View style={{  flexDirection: 'row', justifyContent:'space-between', width:330}}>
             <View style={styles.cardContainer}>
-              <CheckBox label={this.props.day}
+              <CheckBox label={this.props.labelText}
                 checkboxStyle={{height:50,width:50}}
                 checkedImage={require('../../../../assets/images/right.png')}
                 uncheckedImage={require('../../../../assets/images/cross_validate.png')}
