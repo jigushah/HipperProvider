@@ -20,13 +20,16 @@ export default class OpeningHours extends React.Component {
   closePopUp = () => {
     alert("close cliked!")
   }
+  onBackPress = () => {
+    this.props.navigator.pop();
+  }
     render() {
         return (
           <View style={{flex:1}}>
               <View style={{position:'absolute',top:0,bottom:0,left:0,right:0,opacity:0.5}}>
                 <Image resizeMode="contain" style={{height:Constant.screenHeight,width:Constant.screenWidth}}  source={require("../../../../assets/images/Asset_25xxxhdpi.png")}/>
               </View>
-              <NavBar/>
+              <NavBar isBackShow={true} onBackPress={this.onBackPress}/>
               <View style={{marginTop:30,marginLeft:15,marginRight:15,paddingBottom:10,borderRadius:5}}>
                 <PopUpHeader headerTitle="Opening Hours" closePopUp={this.closePopUp}/>
                 <View style={{backgroundColor:'rgb(255,234,236)'}}>
@@ -37,14 +40,14 @@ export default class OpeningHours extends React.Component {
                   <ListItem day={"Thursday"}/>
                   <ListItem day={"Friday"}/>
                   <ListItem day={"Saturday"}/>
-                  <View style={{
+                  <TouchableHighlight onPress={()=>{this.props.navigator.pop()}} style={{
                           padding:10,flexDirection:'row',
                           backgroundColor:'rgb(76,167,165)',
                           alignItems:'center',
                           justifyContent:'center',borderRadius:0,
                           marginLeft:20,marginRight:20,marginTop:5,marginBottom:25}}>
                           <Text style={{marginLeft:10,color:'white',fontSize:20}}>Save</Text>
-                  </View>
+                  </TouchableHighlight>
                 </View>
 
               </View>

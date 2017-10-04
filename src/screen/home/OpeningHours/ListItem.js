@@ -24,7 +24,7 @@ export default class ListItem extends React.Component {
                 checkboxStyle={{height:50,width:50}}
                 checkedImage={require('../../../../assets/images/right.png')}
                 uncheckedImage={require('../../../../assets/images/cross_validate.png')}
-                onChange={(checked) => alert('I am', this.checked)} />
+                onChange={(checked) => {}} />
             </View>
             <View style={styles.timeDropdown}>
               <View style={{  flexDirection: 'row', justifyContent:'space-between', width:130, marginLeft:5}}>

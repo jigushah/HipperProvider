@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView,
     TextInput ,Image ,TouchableHighlight, TouchableOpacity} from 'react-native';
 import Constant from '../../../services/apiConstant';
-import NavBar from '../../navigationComponent/navigationBar';
+import NavigationBar from '../../navigationComponent/navigationBar';
 import HomeCom from './homeScreenComponent'
 
 
@@ -11,15 +11,20 @@ export default class EditProfile extends React.Component {
         super(props);
     }
     componentPress = (text) => {
-        alert(text);
+      if(text){
+        this.props.navigator.push(text);
+      }
     };
+    onBackPress = () => {
+      this.props.navigator.pop();
+    }
       render() {
         return (
           <View style={{flex:1}}>
             <View style={{position:'absolute',top:0,bottom:0,left:0,right:0,opacity:0.5}}>
               <Image resizeMode="contain" style={{height:Constant.screenHeight,width:Constant.screenWidth}}  source={require("../../../../assets/images/Asset_25xxxhdpi.png")}/>
             </View>
-            <NavBar/>
+            <NavigationBar isBackShow={false} onBackPress={this.onBackPress}/>
             <View style={{
                 padding:15,
                 backgroundColor:'rgb(240,240,240)',
@@ -36,6 +41,7 @@ export default class EditProfile extends React.Component {
                                  backColor="" width={0}
                                  imageLogo={"require('../../../assets/images/magnifier.png')"}
                                  componentPress={this.componentPress}
+                                 pageName={'CouponCollection'}
                                  opacity={1}/>
                         <HomeCom text={"Add / Edit Product"}
                                  backColor="" width={5}
@@ -50,6 +56,7 @@ export default class EditProfile extends React.Component {
                         <HomeCom text={"Edit Opening Hours"}
                                   backColor="" width={5}
                                   imageLogo=""
+                                  pageName={"OpeningHours"}
                                   componentPress={this.componentPress}
                                   opacity={0.6}/>
                         <HomeCom text={"Edit Payment Method"}

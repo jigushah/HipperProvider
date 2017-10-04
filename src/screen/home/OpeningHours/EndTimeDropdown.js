@@ -23,7 +23,7 @@ export default class EndTimeDropdown extends React.Component {
 const styles = StyleSheet.create({
     dropDownNormalStyle:{
       height: 40,
-      width:40,
+      width:60,
       backgroundColor:'white',
       borderRadius:3
     },

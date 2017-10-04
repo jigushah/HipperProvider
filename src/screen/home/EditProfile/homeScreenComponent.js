@@ -6,7 +6,7 @@ export default class homeScreenComponent extends React.Component {
         super(props);
     }
     componentPress = () => {
-this.props.componentPress(this.props.text);
+this.props.componentPress((this.props.pageName)?this.props.pageName:"");
     };
     render() {
         return (

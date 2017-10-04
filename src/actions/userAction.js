@@ -4,34 +4,26 @@
 
 import axios from 'axios';
 import {
-    GET_USER_DETAILS
+    GET_USER_DETAILS,SET_USER_DATA
 } from '../constants/actionTypes';
 import APIConstant from '../services/apiConstant';
 import { showAlert } from '../services/helper';
 
-export const getUsers = () => {
-        debugger;
-    return (dispatch, getState) => {
-        debugger;
-        return axios.get(APIConstant.baseUrl + APIConstant.getUsers)
-            .then(res => {
-                debugger;
-console.log("/*/*/*/*/*/*/*/*/*/*/",res.data);
-                dispatch({
-                    type: GET_USER_DETAILS,
-                    payload: res.data
-                });
 
-            }).catch(err => {
-                debugger
-                console.log('catch error loginAPI', e);
-                if (e.response.data.message){
-                    showAlert(e.response.data.message)
-                }else {
-                    showAlert("Server Error")
-                }
-                throw new Error(e);
-            });
-    };
 
-};
+export const loginUser = (user) => {
+  return (dispatch,getState) => {
+    let url = APIConstant.baseUrl + APIConstant.login;
+    return axios.post(url,user,{})
+    .then(res => {
+      dispatch({
+        type:SET_USER_DATA,
+        payload:res.data
+      });
+      return Promise.resolve(res.data);
+    })
+    .catch(err => {
+      return Promise.reject(err);
+    });
+  }
+}
