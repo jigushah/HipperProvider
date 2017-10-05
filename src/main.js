@@ -6,10 +6,8 @@ import navigationContext from './navigationHelper/customNavigationContext';
 import Router from './navigationHelper/router'
 import { NavigationProvider,StackNavigation } from '@expo/ex-navigation';
 
-
 export default class main extends React.Component {
-
-    render() {
+  render() {
         return (
             <View style={styles.container}>
                 <StatusBar backgroundColor="blue" hidden={true}/>
@@ -26,7 +24,6 @@ export default class main extends React.Component {
             </View>
         );
     }
-
 }
 
 const styles = StyleSheet.create({

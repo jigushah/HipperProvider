@@ -10,6 +10,6 @@ module.exports = {
     baseUrl: 'http://35.198.70.235:8090/',
     //ec2-52-59-69-22.eu-central-1.compute.amazonaws.com:8090
     login:'register/provider/login',
-    signUp:'public/customer/signup',
+    signUp:'register/provider/signup',
 
 };

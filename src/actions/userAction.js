@@ -9,8 +9,6 @@ import {
 import APIConstant from '../services/apiConstant';
 import { showAlert } from '../services/helper';
 
-
-
 export const loginUser = (user) => {
   return (dispatch,getState) => {
     let url = APIConstant.baseUrl + APIConstant.login;
@@ -23,6 +21,21 @@ export const loginUser = (user) => {
       return Promise.resolve(res.data);
     })
     .catch(err => {
+      return Promise.reject(err);
+    });
+  }
+}
+
+export const signUpUser = (newUser) => {
+  return (dispatch,getState) => {
+    let url = APIConstant.baseUrl + APIConstant.signUp;
+    return axios.post(url,newUser,{})
+    .then(res => {
+      debugger;
+      return Promise.resolve(res.data);
+    })
+    .catch(err => {
+      debugger;
       return Promise.reject(err);
     });
   }
