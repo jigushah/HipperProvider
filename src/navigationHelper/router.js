@@ -10,6 +10,7 @@ import EditProfile from '../screen/home/EditProfile/EditProfile'
 import CouponCollected from '../screen/home/CouponCollection/CouponCollected'
 import CouponCollection from '../screen/home/CouponCollection/CouponCollection'
 import OpeningHours from '../screen/home/OpeningHours/OpeningHours'
+import productList from '../screen/home/product/productList'
 
 export default createRouter(() => ({
     login: () => login,
@@ -19,7 +20,8 @@ export default createRouter(() => ({
     EditProfile: () => EditProfile,
     CouponCollected: () => CouponCollected,
     CouponCollection: () => CouponCollection,
-    OpeningHours: () => OpeningHours
+    OpeningHours: () => OpeningHours,
+    productList: () => productList
 
 
 }),{ignoreSerializableWarnings: true});
