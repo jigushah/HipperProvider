@@ -24,7 +24,7 @@ export default class AddNewProduct extends React.Component {
             </View>
             <View style={{marginLeft:20, marginTop:20}}>
               <Text style={{fontFamily:'NunitoBold', fontSize:20, color:'gray'}}>Product Name</Text>
-              <TextInput style = {styles.input} />
+              <TextInput style = {styles.textinput1} />
             </View>
             <View style={{marginLeft:20, marginTop:20}}>
               <Text style={{fontFamily:'NunitoBold', fontSize:20, color:'gray'}}>Product Type</Text>
@@ -40,7 +40,10 @@ export default class AddNewProduct extends React.Component {
             </View>
             <View style={{marginLeft:20, marginTop:20}}>
               <Text style={{fontFamily:'NunitoBold', fontSize:20, color:'gray'}}>Asking Price</Text>
-              <TextInput style = {styles.input} />
+              <View style={{flexDirection:'row', flexWrap:'nowrap'}}>
+                <TextInput style = {styles.textinput2} />
+                <TextInput style = {[...styles.textinput2, 'flex': 0.3]} />
+              </View>
             </View>
           </View>
         );
@@ -49,7 +52,15 @@ export default class AddNewProduct extends React.Component {
 
 const styles = StyleSheet.create({
 
-   input: {
+   textinput2: {
+      flex: 0.7,
+      marginTop:5,
+      marginRight:20,
+      height: 40,
+      borderColor: 'gray',
+      borderWidth: 1
+   },
+   textinput1: {
       marginTop:5,
       marginRight:20,
       height: 40,
