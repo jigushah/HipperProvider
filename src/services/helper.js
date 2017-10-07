@@ -14,7 +14,7 @@ export function validateEmail(email) {
     return re.test(email);
 }
 
-export function getAccessToken(){
+export function async getAccessToken(){
   return AsyncStorage.getItem('access_token', (error, access_token) => {
     return access_token
   })

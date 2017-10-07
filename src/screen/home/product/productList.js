@@ -7,11 +7,7 @@ import {getProduct} from '../../../actions/productAction';
 
 class ProductList extends React.Component {
   componentWillMount(){
-    this.props.getProduct().then(res => {
-      debugger;
-    }).catch(error => {
-      debugger;
-    })
+    this.props.getProduct();
   }
   //this.props.navigation.push("bookExperience");
 
@@ -60,7 +56,7 @@ const styles = StyleSheet.create({
     },
 });
 const mapStateToProps = (state) => ({
-
+  product: state.product,
 });
 
 

@@ -19,12 +19,12 @@ export const loginUser = (user) => {
         type:SET_USER_DATA,
         payload:res.data
       });
-      AsyncStorage.setItem('provider_id', (res.data.provider_id), () => {AsyncStorage.getItem('provider_id', (err, result) => {
-      console.log(result);
-    })})
-      AsyncStorage.setItem('access_token', (res.data.access_token), () => {AsyncStorage.getItem('access_token', (err, result) => {
-      console.log(result);
-    })})
+      const auth = {
+        provider_id: res.data.provider_id,
+        access_token: res.data.access_token,
+      };
+      AsyncStorage.setItem('auth', auth)
+
       return Promise.resolve(res.data);
     })
     .catch(err => {
