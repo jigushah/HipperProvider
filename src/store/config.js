@@ -6,16 +6,16 @@ import thunk from 'redux-thunk';
 import reducer from '../reducers/index';
 import { createNavigationEnabledStore } from '@expo/ex-navigation';
 
-const middleware = [ thunk ];
+const middleware = [thunk];
 
 const createStoreWithNavigation = createNavigationEnabledStore({
-    createStore,
-    navigationStateKey: 'navigation',
+  createStore,
+  navigationStateKey: 'navigation',
 });
 
 const Store = createStoreWithNavigation(
-    reducer,
-    applyMiddleware(...middleware)
+  reducer,
+  applyMiddleware(...middleware),
 );
 
 export default Store;

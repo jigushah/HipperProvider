@@ -3,26 +3,23 @@
  */
 
 import axios from 'axios';
+import { AsyncStorage } from 'react-native';
 import {
 
 } from '../constants/actionTypes';
-import {AsyncStorage} from 'react-native';
 import APIConstant from '../services/apiConstant';
-import { showAlert, getAccessToken } from '../services/helper';
 
-export const getProduct = () => {
-  return (dispatch,getState) => {
+export default function getProduct() {
+  return (dispatch) => {
     AsyncStorage.getItem('auth', (error, auth) => {
-      debugger;
-      let url = APIConstant.baseUrl + APIConstant.productList + auth.provider_id + '/product';
-      axios.get(url, {Authorization:'bearer ' + auth.access_token })
-        .then(res => {
-          debugger;
-          dipatch({ type: 'PRODUCT_SUCCESS', res.data });
+      const url = `${APIConstant.baseUrl + APIConstant.productList + auth.provider_id}/product`;
+      axios.get(url, { Authorization: `bearer ${auth.access_token}` })
+        .then((res) => {
+          dispatch({ type: 'PRODUCT_SUCCESS', data: res.data });
         })
-        .catch(err => {
-          dipatch({ type: 'PRODUCT_ERROR', err });
+        .catch((err) => {
+          dispatch({ type: 'PRODUCT_ERROR', err });
         });
-    })
-  }
+    });
+  };
 }

@@ -3,47 +3,33 @@
  */
 
 import axios from 'axios';
-import {AsyncStorage} from 'react-native';
-import {
-    GET_USER_DETAILS,SET_USER_DATA
+import { AsyncStorage } from 'react-native';
+import { SET_USER_DATA,
 } from '../constants/actionTypes';
 import APIConstant from '../services/apiConstant';
-import { showAlert } from '../services/helper';
 
-export const loginUser = (user) => {
-  return (dispatch,getState) => {
-    let url = APIConstant.baseUrl + APIConstant.login;
-    return axios.post(url,user,{})
-    .then(res => {
+export const loginUser = user => (dispatch) => {
+  const url = APIConstant.baseUrl + APIConstant.login;
+  return axios.post(url, user, {})
+    .then((res) => {
       dispatch({
-        type:SET_USER_DATA,
-        payload:res.data
+        type: SET_USER_DATA,
+        payload: res.data,
       });
       const auth = {
         provider_id: res.data.provider_id,
         access_token: res.data.access_token,
       };
-      AsyncStorage.setItem('auth', auth)
+      AsyncStorage.setItem('auth', JSON.stringify(auth));
 
       return Promise.resolve(res.data);
     })
-    .catch(err => {
-      return Promise.reject(err);
-    });
-  }
-}
+    .catch(err => Promise.reject(err));
+};
 
-export const signUpUser = (newUser) => {
-  return (dispatch,getState) => {
-    let url = APIConstant.baseUrl + APIConstant.signUp;
-    return axios.post(url,newUser,{})
-    .then(res => {
-      debugger;
-      return Promise.resolve(res.data);
-    })
-    .catch(err => {
-      debugger;
-      return Promise.reject(err);
-    });
-  }
-}
+export const signUpUser = newUser => () => {
+  const url = APIConstant.baseUrl + APIConstant.signUp;
+  return axios.post(url, newUser, {})
+    .then(res => Promise.resolve(res.data))
+    .catch(err => Promise.reject(err));
+};
