@@ -46,6 +46,7 @@ export default class EditProfile extends React.Component {
                         <HomeCom text={"Add / Edit Product"}
                                  backColor="" width={5}
                                  imageLogo=""
+                                 pageName={'productList'}
                                  componentPress={this.componentPress}
                                  opacity={0.6}/>
                         <HomeCom text={"Edit Restaurant Info"}

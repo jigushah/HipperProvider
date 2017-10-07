@@ -11,5 +11,6 @@ module.exports = {
     //ec2-52-59-69-22.eu-central-1.compute.amazonaws.com:8090
     login:'register/provider/login',
     signUp:'register/provider/signup',
+    productList: 'secured/provider/'
 
 };

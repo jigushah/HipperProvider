@@ -13,7 +13,7 @@ export default class main extends React.Component {
                 <StatusBar backgroundColor="blue" hidden={true}/>
                 <Provider store={store}>
                     <NavigationProvider router={Router} context={navigationContext}>
-                        <StackNavigation initialRoute={Router.getRoute('productList')}
+                        <StackNavigation initialRoute={Router.getRoute('login')}
                                          defaultRouteConfig={{
                                              navigationBar: {
                                                  visible: false,

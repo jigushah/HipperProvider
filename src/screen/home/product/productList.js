@@ -3,15 +3,17 @@ import { StyleSheet, Text, View, TextInput ,Image ,ScrollView} from 'react-nativ
 import ProductComponent from './component/productComponent';
 import NavBar from '../../navigationComponent/navigationBar';
 import { connect } from 'react-redux';
-
+import {getProduct} from '../../../actions/productAction';
 
 class ProductList extends React.Component {
   componentWillMount(){
-
+    this.props.getProduct().then(res => {
+      debugger;
+    }).catch(error => {
+      debugger;
+    })
   }
   //this.props.navigation.push("bookExperience");
-
-
 
   render() {
       return (
@@ -63,7 +65,7 @@ const mapStateToProps = (state) => ({
 
 
 const mapActionToProps = ({
-
+  getProduct
 });
 
 export default connect(mapStateToProps, mapActionToProps)(ProductList);

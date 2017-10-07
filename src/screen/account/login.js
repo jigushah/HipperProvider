@@ -12,8 +12,8 @@ class login extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      email:'',
-      pass:''
+      email:'jigushah159@gmail.com',
+      pass:'123456'
     }
   }
     navigateToPage = (page) => {
