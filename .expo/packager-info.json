@@ -1,8 +1,8 @@
 {
   "expoServerPort": 19000,
-  "packagerPort": 19002,
-  "packagerPid": 3773,
-  "expoServerNgrokUrl": "https://53-nqf.jigushah.hipperprovider.exp.direct",
-  "packagerNgrokUrl": "https://packager.53-nqf.jigushah.hipperprovider.exp.direct",
-  "ngrokPid": 3792
+  "packagerPort": 19001,
+  "packagerPid": 1793,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

@@ -10,19 +10,18 @@ export default class main extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="blue" hidden />
-        <Provider store={store}>
-          <NavigationProvider router={Router} context={navigationContext}>
-            <StackNavigation
-              initialRoute={Router.getRoute('login')}
-              defaultRouteConfig={{
-                                             navigationBar: {
-                                                 visible: false,
-                                             },
-                                         }}
-            />
-          </NavigationProvider>
-        </Provider>
+      <StatusBar backgroundColor="blue" hidden />
+      <Provider store={store}>
+      <NavigationProvider router={Router} context={navigationContext}>
+      <StackNavigation initialRoute={Router.getRoute('couponList')}
+      defaultRouteConfig={{
+        navigationBar: {
+          visible: false,
+        },
+      }}
+      />
+      </NavigationProvider>
+      </Provider>
       </View>
     );
   }

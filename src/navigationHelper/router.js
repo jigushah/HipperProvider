@@ -11,6 +11,10 @@ import CouponCollected from '../screen/home/CouponCollection/CouponCollected';
 import CouponCollection from '../screen/home/CouponCollection/CouponCollection';
 import OpeningHours from '../screen/home/OpeningHours/OpeningHours';
 import productList from '../screen/home/product/productList';
+import addProduct from '../screen/home/product/addProduct';
+import editProduct from '../screen/home/product/editProduct';
+import businessInfo from '../screen/home/businessInfo/businessInfo';
+import couponList from '../screen/home/couponList/couponList';
 
 export default createRouter(() => ({
   login: () => login,
@@ -22,6 +26,9 @@ export default createRouter(() => ({
   CouponCollection: () => CouponCollection,
   OpeningHours: () => OpeningHours,
   productList: () => productList,
-
+  addProduct: () => addProduct,
+  editProduct: () => editProduct,
+  businessInfo: () => businessInfo,
+  couponList: () => couponList
 
 }), { ignoreSerializableWarnings: true });

@@ -5,21 +5,30 @@
 import axios from 'axios';
 import { AsyncStorage } from 'react-native';
 import {
-
+  GET_PRODUCT_LIST
 } from '../constants/actionTypes';
 import APIConstant from '../services/apiConstant';
+import ApiCall from '../services/apiCall'
 
-export default function getProduct() {
+export const getProduct = () => {
   return (dispatch) => {
-    AsyncStorage.getItem('auth', (error, auth) => {
-      const url = `${APIConstant.baseUrl + APIConstant.productList + auth.provider_id}/product`;
-      axios.get(url, { Authorization: `bearer ${auth.access_token}` })
-        .then((res) => {
-          dispatch({ type: 'PRODUCT_SUCCESS', data: res.data });
-        })
-        .catch((err) => {
-          dispatch({ type: 'PRODUCT_ERROR', err });
-        });
-    });
+    debugger;
+    return AsyncStorage.getItem('auth').then(auth =>{
+       const url = `${APIConstant.baseUrl + APIConstant.productList + JSON.parse(auth).provider_id}/product`;
+       return axios.get(url,{headers:{ Authorization: `bearer ${JSON.parse(auth).access_token}` }})
+         .then((res) => {
+           debugger;
+           dispatch({ type: 'GET_PRODUCT_LIST', payload: res.data.content });
+           return Promise.resolve(res);
+         })
+         .catch((err) => {
+           return Promise.reject(err);
+         });
+     }).catch(err => {
+return Promise.reject(err);
+
+     })
+
+
   };
 }
