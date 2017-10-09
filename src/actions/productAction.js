@@ -3,30 +3,32 @@
  */
 
 import axios from 'axios';
+import { AsyncStorage } from 'react-native';
 import {
-
+  GET_PRODUCT_LIST
 } from '../constants/actionTypes';
-import {AsyncStorage} from 'react-native';
 import APIConstant from '../services/apiConstant';
-import { showAlert, getAccessToken } from '../services/helper';
+import ApiCall from '../services/apiCall'
 
 export const getProduct = () => {
-  return (dispatch,getState) => {
-    return AsyncStorage.getItem('provider_id', (error, provider_id) => {
-            debugger;
-            return getAccessToken().then(access_token => {
-              console.log(access_token)
-          let url = APIConstant.baseUrl + APIConstant.productList + provider_id + '/product';
-          return axios.get(url, {Authorization:'bearer ' + access_token })
-          .then(res => {
-            debugger;
-            return Promise.resolve(res.data);
-          })
-          .catch(err => {
-            debugger;
-            return Promise.reject(err);
-          });
-      })
-    })
-  }
+  return (dispatch) => {
+    debugger;
+    return AsyncStorage.getItem('auth').then(auth =>{
+       const url = `${APIConstant.baseUrl + APIConstant.productList + JSON.parse(auth).provider_id}/product`;
+       return axios.get(url,{headers:{ Authorization: `bearer ${JSON.parse(auth).access_token}` }})
+         .then((res) => {
+           debugger;
+           dispatch({ type: 'GET_PRODUCT_LIST', payload: res.data.content });
+           return Promise.resolve(res);
+         })
+         .catch((err) => {
+           return Promise.reject(err);
+         });
+     }).catch(err => {
+return Promise.reject(err);
+
+     })
+
+
+  };
 }

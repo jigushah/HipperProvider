@@ -3,7 +3,7 @@ import {
   NavigationStyles,
 } from '@expo/ex-navigation';
 
-import Store from '../store/config'
+import Store from '../store/config';
 import Router from './router';
 
 class CustomNavigationContext extends NavigationContext {
@@ -23,5 +23,5 @@ class CustomNavigationContext extends NavigationContext {
 
 export default new CustomNavigationContext({
   router: Router,
-  store: Store
+  store: Store,
 });
