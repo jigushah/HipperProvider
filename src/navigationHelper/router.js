@@ -15,7 +15,8 @@ import addProduct from '../screen/home/product/addProduct';
 import editProduct from '../screen/home/product/editProduct';
 import businessInfo from '../screen/home/businessInfo/businessInfo';
 import couponList from '../screen/home/couponList/couponList';
-import bankDetail from '../screen/home/bankDetail/bankDetail'
+import bankDetail from '../screen/home/bankDetail/bankDetail';
+import Scanner from '../screen/home/CouponCollection/component/barcodeScanner'
 
 export default createRouter(() => ({
   login: () => login,
@@ -32,5 +33,6 @@ export default createRouter(() => ({
   businessInfo: () => businessInfo,
   couponList: () => couponList,
   bankDetail: () => bankDetail,
+  Scanner: () => Scanner
 
 }), { ignoreSerializableWarnings: true });
