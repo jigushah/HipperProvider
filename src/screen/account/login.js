@@ -43,18 +43,18 @@ class login extends React.Component {
 
                     <View>
                         <View>
-                            <Textbox image={require('../../../assets/images/email.png')} placeHolder={"Email"}
+                            <Textbox image={require('../../../assets/images/email.png')} value = {this.state.email} placeHolder={"Email"}
                             textChanged={(text)=> {
                               this.setState({email:text})
                             }}/>
-                            <Textbox image={require('../../../assets/images/pass.png')} placeHolder={"Type a Password"}
+                            <Textbox image={require('../../../assets/images/pass.png')} value = {this.state.pass} placeHolder={"Type a Password"}
                             textChanged={(text)=> {
                               this.setState({pass:text})
                             }}
                             />
                         </View>
                     </View>
-                    <TouchableHighlight onPress={()=>{
+                    <TouchableHighlight underlayColor={'transparent'} onPress={()=>{
                       let user = {
                         email:this.state.email,
                         password:this.state.pass
@@ -62,7 +62,7 @@ class login extends React.Component {
                       if(this.state.email && this.state.pass){
                       if(validateEmail(this.state.email)){
                       this.props.loginUser(user).then(res => {
-                        alert(this.props.userDetail.toString());
+
                         this.navigateToPage('EditProfile')
                       }).catch(err=> {
                         alert("sfs");

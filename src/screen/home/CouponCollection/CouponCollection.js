@@ -6,12 +6,19 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 import { Entypo,MaterialCommunityIcons } from '@expo/vector-icons';
 import Constant from '../../../services/apiConstant';
 import NavBar from '../../navigationComponent/navigationBar';
+import Scanner from './component/barcodeScanner';
 
 const Images = {
   mapImg: require('../../../../assets/images/map_BW.png'),
 }
 
 export default class CouponCollection extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      showBarcode:true
+    }
+  }
   closePopUp = () => {
     alert("close cliked!")
   }
@@ -22,7 +29,6 @@ export default class CouponCollection extends React.Component {
         return (
           <View style={{flex:1}}>
               <View style={{position:'absolute',top:0,bottom:0,left:0,right:0,opacity:0.5}}>
-                <Image resizeMode="contain" style={{height:Constant.screenHeight,width:Constant.screenWidth}}  source={require("../../../../assets/images/Asset_25xxxhdpi.png")}/>
               </View>
               <NavBar isBackShow={true} onBackPress={this.onBackPress}/>
               <View style={{marginTop:30,marginLeft:15,marginRight:15,paddingBottom:10,borderRadius:5}}>
@@ -34,7 +40,7 @@ export default class CouponCollection extends React.Component {
 
                   </View>
                   <Text style={{alignSelf:'center', fontSize:20, color:'red', fontFamily:'NunitoBoldItalic'}}> {"- Or -"} </Text>
-                  <TouchableHighlight underlayColor={"transparent"} onPress={()=>{this.props.navigator.pop()}} style={{
+                  <TouchableHighlight underlayColor={"transparent"} onPress={()=>{this.props.navigator.push('Scanner')}} style={{
                           padding:8,flexDirection:'row',
                           backgroundColor:'white',borderWidth:2,borderColor:'red',
                           alignItems:'center',
@@ -47,7 +53,7 @@ export default class CouponCollection extends React.Component {
                           </View>
                       </TouchableHighlight>
 
-                    <TouchableHighlight underlayColor={"transparent"} onPress={()=>{this.props.navigator.pop()}} style={{
+                    <TouchableHighlight underlayColor={"transparent"} onPress={()=>{this.props.navigator.push("CouponCollected")}} style={{
                             padding:10,flexDirection:'row',
                             backgroundColor:'rgb(76,167,165)',
                             alignItems:'center',
@@ -59,6 +65,7 @@ export default class CouponCollection extends React.Component {
 
                 </View>
               </View>
+
           </View>
         );
     }

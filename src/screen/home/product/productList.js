@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView,TouchableHighlight } from 'react-native';
 import ProductComponent from './component/productComponent';
 import NavBar from '../../navigationComponent/navigationBar';
 import { getProduct } from '../../../actions/productAction';
@@ -14,11 +14,16 @@ class ProductList extends React.Component {
     })
   }
   // this.props.navigation.push("bookExperience");
-
+onBackPress = () => {
+  this.props.navigator.pop();
+}
+onPressEditProduct = (obj) => {
+  this.props.navigator.push('editProduct',{product:obj})
+}
   render() {
     return (
       <View style={{ flex: 1 }}>
-      <NavBar />
+      <NavBar isBackShow={true} onBackPress={this.onBackPress}/>
       <View style={{
         padding: 15,
         backgroundColor: 'rgb(240,240,240)',
@@ -36,7 +41,7 @@ class ProductList extends React.Component {
       </Text>
       </View>
       <ScrollView style={{ flex: 1, paddingLeft: 10, paddingRight: 10 }}>
-      <View style={{
+      <TouchableHighlight style={{
         paddingTop: 12,
         paddingLeft: 40,
         paddingBottom: 12,
@@ -45,10 +50,10 @@ class ProductList extends React.Component {
         backgroundColor: 'rgb(68,176,166)',
         justifyContent: 'center',
         alignItems: 'center',
-      }}
+      }} underlayColor="transparent" onPress={()=>{this.props.navigator.push("addProduct")}}
       >
       <Text style={{ color: 'white', fontFamily: 'NunitoBoldItalic', fontSize: 17 }}>Add New Product</Text>
-      </View>
+      </TouchableHighlight>
       {
         this.props.productList.map((obj,index)=> {
           return <ProductComponent key={index}
@@ -56,7 +61,9 @@ class ProductList extends React.Component {
           productType={obj.productType}
           description={obj.description}
           price={obj.price}
-          productCategory={obj.productCategory}/>
+          productCategory={obj.productCategory}
+          productObj={obj}
+          onPressEditProduct={this.onPressEditProduct}/>
         })
       }
       </ScrollView>

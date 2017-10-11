@@ -5,7 +5,7 @@ import store from './store/config';
 import navigationContext from './navigationHelper/customNavigationContext';
 import Router from './navigationHelper/router';
 import { NavigationProvider, StackNavigation } from '@expo/ex-navigation';
-
+console.disableYellowBox = true;
 export default class main extends React.Component {
   render() {
     return (
@@ -13,7 +13,7 @@ export default class main extends React.Component {
       <StatusBar backgroundColor="blue" hidden />
       <Provider store={store}>
       <NavigationProvider router={Router} context={navigationContext}>
-      <StackNavigation initialRoute={Router.getRoute('couponList')}
+      <StackNavigation initialRoute={Router.getRoute('login')}
       defaultRouteConfig={{
         navigationBar: {
           visible: false,

@@ -10,16 +10,18 @@ class couponList extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      radioData : [
-        {name : "Food",flag : true},
-        {name : "Drink",flag : false},
-        {name : "Desert",flag : false}
+      couponData : [
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
+        {dateTime : "12/07/2017 4:00",no : 3,price:"5$"},
       ],
-      categoryData : [
-        {name : "Eat",flag : true},
-        {name : "Drink",flag : true},
-        {name : "Love",flag : true},
-      ]
+
     }
   }
 
@@ -27,11 +29,13 @@ class couponList extends React.Component {
 
   }
   // this.props.navigation.push("bookExperience");
-
+onBackPress = () => {
+  this.props.navigator.pop();
+}
   render() {
     return (
       <View style={{ flex: 1 }}>
-      <NavBar />
+      <NavBar isBackShow={true} onBackPress={this.onBackPress}/>
       <View style={{
         padding: 15,
         backgroundColor: 'rgb(240,240,240)',
@@ -48,14 +52,29 @@ class couponList extends React.Component {
       </Text>
       </View>
       <ScrollView style={{ flex: 1, padding:20 }}>
-      <View style={{flexDirection:'row',backgroundColor:'gray'}}>
-      <View style={{flex:2}}><Text>{"Date & Time"}</Text></View>
-      <View style={{flex:1}}><Text>Coupon</Text></View>
-      <View style={{flex:1}}><Text>Value</Text></View>
-
+      <View style={{flexDirection:'row',backgroundColor:'rgba(0,0,0,0.1)',padding:10}}>
+      <View style={{flex:2}}><Text style={{fontFamily: 'NunitoBold',color:'gray',fontSize:17}}>{"Date & Time"}</Text></View>
+      <View style={{flex:1}}><Text style={{fontFamily: 'NunitoBold',color:'gray',fontSize:17}}>Coupon</Text></View>
+      <View style={{flex:1}}><Text style={{fontFamily: 'NunitoBold',color:'gray',fontSize:17}}>Value</Text></View>
       </View>
-
+        {
+          this.state.couponData.map((obj)=> {
+            return <View style={{flexDirection:'row',backgroundColor:'white',padding:10}}>
+            <View style={{flex:2}}><Text style={{fontFamily: 'NunitoBold',color:'gray',fontSize:17}}>
+            {obj.dateTime}</Text></View>
+            <View style={{flex:1}}><Text style={{fontFamily: 'NunitoBold',color:'gray',fontSize:17}}>{obj.no}</Text></View>
+            <View style={{flex:1}}><Text style={{fontFamily: 'NunitoBold',color:'gray',fontSize:17}}>{obj.price}</Text></View>
+            </View>
+          })
+        }
       </ScrollView>
+      <View style={{position:'absolute',bottom:0,left:0,right:0}}>
+      <View style={{flexDirection:'row',backgroundColor: 'rgb(68,176,166)',padding:10,alignSelf:'center'}}>
+      <View style={{flex:2}}><Text style={{fontFamily: 'NunitoBold',color:'white',fontSize:17}}>Summary</Text></View>
+      <View style={{flex:1}}><Text style={{fontFamily: 'NunitoBold',color:'white',fontSize:17}}>154</Text></View>
+      <View style={{flex:1}}><Text style={{fontFamily: 'NunitoBold',color:'white',fontSize:17}}>{"125$"}</Text></View>
+      </View>
+      </View>
       </View>
     );
   }

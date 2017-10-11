@@ -53,11 +53,13 @@ class AddProduct extends React.Component {
 
   }
   // this.props.navigation.push("bookExperience");
-
+onBackPress = () => {
+  this.props.navigator.pop();
+}
   render() {
     return (
       <View style={{ flex: 1 }}>
-      <NavBar />
+      <NavBar isBackShow={true} onBackPress={this.onBackPress}/>
       <View style={{
         padding: 15,
         backgroundColor: 'rgb(240,240,240)',
