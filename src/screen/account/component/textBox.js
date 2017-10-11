@@ -19,6 +19,7 @@ height: 30, width: 30, alignSelf: 'center', marginLeft: 10, marginRight: 10,
           <TextInput
             placeholder={this.props.placeHolder}
             underlineColorAndroid="transparent"
+            value = {(this.props.value)?this.props.value:''}
             onChangeText={(text) => {
                                  this.props.textChanged(text);
                                }}

@@ -23,6 +23,9 @@ class singup extends React.Component {
   navigateToPage = (page) => {
       this.props.navigator.push(page);
   };
+  onBackPress = () => {
+    this.props.navigator.pop();
+  }
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -30,7 +33,7 @@ class singup extends React.Component {
       <Image source={require("../../../assets/images/homeScreenBack.jpg")}/>
       </View>
       <View style={{backgroundColor:'transparent',flex:1}}>
-      <NavigationBar/>
+      <NavigationBar isBackShow={true} onBackPress={this.onBackPress}/>
       <ScrollView>
       <View style={{margin:20}}>
       <Text style={{

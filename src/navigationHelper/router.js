@@ -15,6 +15,7 @@ import addProduct from '../screen/home/product/addProduct';
 import editProduct from '../screen/home/product/editProduct';
 import businessInfo from '../screen/home/businessInfo/businessInfo';
 import couponList from '../screen/home/couponList/couponList';
+import bankDetail from '../screen/home/bankDetail/bankDetail'
 
 export default createRouter(() => ({
   login: () => login,
@@ -29,6 +30,7 @@ export default createRouter(() => ({
   addProduct: () => addProduct,
   editProduct: () => editProduct,
   businessInfo: () => businessInfo,
-  couponList: () => couponList
+  couponList: () => couponList,
+  bankDetail: () => bankDetail,
 
 }), { ignoreSerializableWarnings: true });

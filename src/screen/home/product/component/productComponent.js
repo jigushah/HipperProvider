@@ -65,7 +65,7 @@ export default class ProductComponent extends React.Component {
       }}
       >
       <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
-      <TouchableHighlight onPress={() => this.props.onPressBooking()} style={{ flex: 1 }}>
+      <TouchableHighlight onPress={() => this.props.onPressEditProduct()} style={{ flex: 1 }}>
       <View style={{
         paddingTop: 10,
         paddingLeft: 0,

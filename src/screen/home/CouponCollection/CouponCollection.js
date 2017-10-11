@@ -47,7 +47,7 @@ export default class CouponCollection extends React.Component {
                           </View>
                       </TouchableHighlight>
 
-                    <TouchableHighlight underlayColor={"transparent"} onPress={()=>{this.props.navigator.pop()}} style={{
+                    <TouchableHighlight underlayColor={"transparent"} onPress={()=>{this.props.navigator.push("CouponCollected")}} style={{
                             padding:10,flexDirection:'row',
                             backgroundColor:'rgb(76,167,165)',
                             alignItems:'center',
