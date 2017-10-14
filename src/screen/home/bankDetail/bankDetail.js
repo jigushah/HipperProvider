@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View ,Image ,TextInput ,TouchableHighlight ,KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View ,Image ,ScrollView,TextInput ,TouchableHighlight ,KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import TextBox from '../../component/TextBox'
 import PopUpHeader from '../../component/popUpHeader'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
@@ -13,7 +13,7 @@ const Images = {
 onBackPress = () => {
   this.props.navigator.pop();
 }
-export default class BusinessInfo extends React.Component {
+export default class BankDetail extends React.Component {
   render() {
     return (
       <View style={{flex:1}}>
@@ -21,22 +21,43 @@ export default class BusinessInfo extends React.Component {
       <Image resizeMode="contain" style={{height:Constant.screenHeight,width:Constant.screenWidth}}  source={require("../../../../assets/images/Asset_25xxxhdpi.png")}/>
       </View>
       <NavBar isBackShow={true} onBackPress={this.onBackPress}/>
-      <View style={{marginTop:30,marginLeft:15,marginRight:15,paddingBottom:10,borderRadius:5}}>
-      <PopUpHeader headerTitle="Business Info" closePopUp={this.closePopUp}/>
+      <ScrollView style={{marginTop:30,marginLeft:15,marginRight:15,paddingBottom:10,borderRadius:5,marginBottom:20}}>
+      <PopUpHeader headerTitle="Bank Details" closePopUp={this.closePopUp}/>
       <View style={{backgroundColor:'rgba(255,255,255,0.5)',padding:30}}>
       <Text style={{color:'gray',paddingBottom:5}}>
-      What types of product you have?
+      Beneficiary Name
       </Text>
       <TextInput multiline = {true}
       numberOfLines = {4} style={{backgroundColor:'white',
-      fontSize:18,padding:10,height:150,borderRadius:5,borderWidth:2
+      fontSize:18,padding:10,borderRadius:5,borderWidth:2
       ,borderColor:'gray'}}/>
       <Text style={{color:'gray',paddingBottom:5,paddingTop:25}}>
-      What is spacial about your place?
+      Beneficiary Address
       </Text>
       <TextInput multiline = {true}
       numberOfLines = {4} style={{backgroundColor:'white',
-      fontSize:18,padding:10,height:150,borderRadius:5,borderWidth:2
+      fontSize:18,padding:10,borderRadius:5,borderWidth:2
+      ,borderColor:'gray'}}/>
+      <Text style={{color:'gray',paddingBottom:5,paddingTop:25}}>
+      Bank Name
+      </Text>
+      <TextInput multiline = {true}
+      numberOfLines = {4} style={{backgroundColor:'white',
+      fontSize:18,padding:10,borderRadius:5,borderWidth:2
+      ,borderColor:'gray'}}/>
+      <Text style={{color:'gray',paddingBottom:5,paddingTop:25}}>
+      {'Branch Number'}
+      </Text>
+      <TextInput multiline = {true}
+      numberOfLines = {4} style={{backgroundColor:'white',
+      fontSize:18,padding:10,borderRadius:5,borderWidth:2
+      ,borderColor:'gray'}}/>
+      <Text style={{color:'gray',paddingBottom:5,paddingTop:25}}>
+      {'Account Number'}
+      </Text>
+      <TextInput multiline = {true}
+      numberOfLines = {4} style={{backgroundColor:'white',
+      fontSize:18,padding:10,borderRadius:5,borderWidth:2
       ,borderColor:'gray'}}/>
       <View style={{paddingTop:20}}>
         <TouchableHighlight >
@@ -57,9 +78,7 @@ export default class BusinessInfo extends React.Component {
         </TouchableHighlight>
       </View>
       </View>
-
-      </View>
-
+      </ScrollView>
       </View>
     );
   }

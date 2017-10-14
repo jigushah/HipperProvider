@@ -46,7 +46,7 @@ export default class CouponCollected extends React.Component {
                     </View>
                   </View>
                     <Text style={{alignSelf:'center', fontSize:20, color:'red', fontFamily:'NunitoBoldItalic'}}>Make him/her a good time! </Text>
-                    <TouchableHighlight underlayColor={"transparent"} onPress={()=>{this.props.navigator.pop()}} style={{
+                    <TouchableHighlight underlayColor={"transparent"} onPress={()=>{this.props.navigator.pop(2)}} style={{
                             padding:10,flexDirection:'row',
                             backgroundColor:'rgb(76,167,165)',
                             alignItems:'center',

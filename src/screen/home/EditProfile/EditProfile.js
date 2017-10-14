@@ -52,6 +52,7 @@ export default class EditProfile extends React.Component {
                         <HomeCom text={"Edit Restaurant Info"}
                                   backColor="" width={5}
                                   imageLogo=""
+                                  pageName={'businessInfo'}
                                   componentPress={this.componentPress}
                                   opacity={0.6}/>
                         <HomeCom text={"Edit Opening Hours"}
@@ -63,11 +64,13 @@ export default class EditProfile extends React.Component {
                         <HomeCom text={"Edit Payment Method"}
                                   backColor="" width={5}
                                   imageLogo=""
+                                  pageName={'bankDetail'}
                                   componentPress={this.componentPress}
                                   opacity={0.6}/>
                         <HomeCom text={"Collected Coupons"}
                                   backColor="" width={5}
                                   imageLogo=""
+                                  pageName={'couponList'}
                                   componentPress={this.componentPress}
                                   opacity={0.6}/>
             </View>
