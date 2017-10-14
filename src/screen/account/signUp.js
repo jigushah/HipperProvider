@@ -4,10 +4,10 @@ import NavigationBar from '../navigationComponent/navigationBar';
 import Textbox from './component/textBox'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 import { Entypo,MaterialCommunityIcons } from '@expo/vector-icons';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { signUpUser } from '../../actions/userAction'
 
-class singup extends React.Component {
+class signup extends React.Component {
   constructor(props){
     super(props);
     this.state={
@@ -141,4 +141,4 @@ class singup extends React.Component {
             signUpUser,
           });
 
-          export default connect(mapStateToProps, mapActionToProps)(singup);
+          export default connect(mapStateToProps, mapActionToProps)(signUp);
