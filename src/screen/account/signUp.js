@@ -7,7 +7,7 @@ import { Entypo,MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux'
 import { signUpUser } from '../../actions/userAction'
 
-class signup extends React.Component {
+class signUp extends React.Component {
   constructor(props){
     super(props);
     this.state={
